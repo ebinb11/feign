@@ -18,6 +18,7 @@ import com.feign.feign.dto.UserListResponseDTO;
 import com.feign.feign.dto.UserRequestDTO;
 import com.feign.feign.dto.UserResponseDTO;
 import com.feign.feign.exception.BadDataException;
+import com.feign.feign.service.FeignService;
 import com.feign.feign.service.UserService;
 import com.feign.feign.utils.AppResponse;
 
@@ -28,6 +29,9 @@ public class UserController {
 
 	@Autowired
 	UserService userService;
+	
+	@Autowired
+	FeignService feignService;
 	
 	@GetMapping("/")
 	public String welcome() {
@@ -106,4 +110,39 @@ public class UserController {
 					.build();
 		}
 	}
+	
+	@GetMapping("/feignService")
+	public AppResponse<String> feignService() {
+		String response = feignService.hello();
+		if (response != null) {
+			return AppResponse.<String> builder()
+					.data(response)
+					.message("Working !")
+					.success(false)
+					.build();
+		} else {
+			return AppResponse.<String> builder()
+					.message("Not Working!")
+					.success(false)
+					.build();
+		}
+	}
+	
+
+	@GetMapping(value = "/userGetEs/{id}")
+	public AppResponse<UserResponseDTO> userGetEs(@PathVariable Long id) throws BadDataException {
+		UserResponseDTO response = feignService.userGetById(id);
+		if (response != null) {
+			return AppResponse.<UserResponseDTO> builder()
+					.data(response)
+					.message("User fetched successfully")
+					.success(true)
+					.build();
+		} else {
+			return AppResponse.<UserResponseDTO> builder()
+					.message("No data found !")
+					.success(false)
+					.build();
+		}
+ 	}
 }
