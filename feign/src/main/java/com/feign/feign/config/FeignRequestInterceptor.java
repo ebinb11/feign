@@ -12,7 +12,7 @@ import feign.RequestTemplate;
 public class FeignRequestInterceptor implements RequestInterceptor {
 
 	 private static final String AUTHORIZATION_HEADER = "Authorization";
-     private static final String BEARER_TOKEN_TYPE = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlYmluYjExQGdtYWlsLmNvbSIsImV4cCI6MTY0NTExODM5MywiaWF0IjoxNjQ1MDk2NzkzfQ.ylTNU5WTOI57jIhb8Y-Tt40pmqOlMrClZHvMrWD9Ass";
+     private static final String BEARER_TOKEN_TYPE = "Bearer XXXXXXXXXXX";
      
 	@Override
 	public void apply(RequestTemplate template) {
