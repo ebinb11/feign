@@ -9,5 +9,7 @@ public interface AppConstants {
     String HEADER_STRING = "Authorization";
 	String INFO_EMAIL_ID = "ebinproject11@gmail.com";
 	String INFO_EMAIL_PASSWORD = "ebinb11219";
+	String USER_NAME = "ebinb11@gmail.com";
+	String PASSWORD = "passwd";
 
 }

@@ -10,7 +10,7 @@ import feign.RequestTemplate;
 
 @Component
 public class FeignRequestInterceptor implements RequestInterceptor {
-
+	
 	 private static final String AUTHORIZATION_HEADER = "Authorization";
      private static final String BEARER_TOKEN_TYPE = "Bearer xxxxxxxxx4545";
      
