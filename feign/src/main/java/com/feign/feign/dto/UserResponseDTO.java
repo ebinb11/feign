@@ -9,9 +9,9 @@ import lombok.Data;
 @Data
 public class UserResponseDTO {
 	
-	@JsonProperty("id")
+	@JsonProperty(value = "id")
 	private Long id;
-	@JsonProperty("firstName")
+	@JsonProperty(value = "firstName")
 	private String firstName;
 	private String lastName;
 	private String phoneNo;
