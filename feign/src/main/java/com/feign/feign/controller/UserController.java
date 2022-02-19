@@ -1,6 +1,8 @@
 package com.feign.feign.controller;
 
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -18,6 +20,7 @@ import com.feign.feign.dto.UserListResponseDTO;
 import com.feign.feign.dto.UserRequestDTO;
 import com.feign.feign.dto.UserResponseDTO;
 import com.feign.feign.exception.BadDataException;
+import com.feign.feign.service.FeignAuthService;
 import com.feign.feign.service.FeignService;
 import com.feign.feign.service.UserService;
 import com.feign.feign.utils.AppResponse;
@@ -32,6 +35,12 @@ public class UserController {
 	
 	@Autowired
 	FeignService feignService;
+	
+	@Autowired
+	HttpSession session;
+	
+	@Autowired
+	FeignAuthService feignAuthService;
 	
 	@GetMapping("/")
 	public String welcome() {
@@ -117,7 +126,7 @@ public class UserController {
 		if (response != null) {
 			return AppResponse.<String> builder()
 					.data(response)
-					.message("Working !")
+					.message("Working!")
 					.success(false)
 					.build();
 		} else {

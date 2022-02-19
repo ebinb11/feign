@@ -11,5 +11,6 @@ public interface AppConstants {
 	String INFO_EMAIL_PASSWORD = "ebinb11219";
 	String USER_NAME = "ebinb11@gmail.com";
 	String PASSWORD = "passwd";
-
+	String EVERY_HOUR_OF_EVERY_DAY = "0 0 * * * *";
+	String EVERY_TEN_SECONDS = "*/10 * * * * *";
 }
