@@ -6,12 +6,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.feign.feign.dto.UserResponseDTO;
 
-@FeignClient(value = "feign-service-producer", url = "http://localhost:8083/api")
+@FeignClient(value = "feign-service-producer", url = "${service.path}")
 public interface FeignService {
 	
-	@GetMapping("user/feignService")
+	@GetMapping("api/user/feignService")
 	String hello();
 
-	@GetMapping("user/userGet/{id}")
+	@GetMapping("api/user/getById/{id}")
 	UserResponseDTO userGetById(@PathVariable("id") Long id);
 }

@@ -8,7 +8,7 @@ import com.feign.feign.dto.AuthResponseDTO;
 
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 
-@FeignClient(value = "externalservice", url = "http://localhost:8083")
+@FeignClient(value = "externalservice", url = "${service.path}")
 public interface FeignAuthService {
 	
 	@PostMapping("/authenticate")
